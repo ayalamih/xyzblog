@@ -25,9 +25,6 @@ export default function Countdown() {
     const [duration, setDuration] = useState<Duration>();
 
     useEffect((() => {
-
-        
-
     }), []);
 
     const enddate = 1672502400000;
