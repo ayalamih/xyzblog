@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -22,7 +15,15 @@ import { Duration, intervalToDuration, Interval} from 'date-fns';
 const theme = createTheme();
 
 export default function Countdown() {
-    const [duration, setDuration] = useState<Duration>();
+    const [duration, setDuration] = useState<Duration>({
+        years: 1970,
+        months: 0,
+        weeks: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+    });
 
     useEffect((() => {
     }), []);

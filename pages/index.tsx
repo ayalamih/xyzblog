@@ -20,7 +20,7 @@ export default function Home({
   return (
     <Layout home>
       <Head>
-        <title>ercwl</title>
+        <title>Erica Wall</title>
       </Head>
       <section>
         <Countdown />
