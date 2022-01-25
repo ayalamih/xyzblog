@@ -15,13 +15,13 @@
 }
 
 .headingLg {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.4;
   margin: 1rem 0;
 }
 
 .headingMd {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   line-height: 1.5;
 }
 
@@ -49,4 +49,27 @@
 
 .lightText {
   color: #666;
+}
+
+.sectionContainer {
+  padding: 2rem 6rem;
+}
+
+.sectionPopur {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: fattern;
+}
+
+.article {
+  padding: 2rem 2rem;
+  font-size: 0.82rem;
+}
+
+@font-face {
+  font-family: 'fattern';
+  src: url("/fonts/Fattern-GO6zm/Fattern-GO6zm.otf");
+  font-weight: 400;
+  font-display: swap;
 }

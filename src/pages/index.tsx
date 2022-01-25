@@ -6,6 +6,8 @@ import Link from 'next/link'
 import Date from '../components/date'
 import { GetStaticProps } from 'next'
 
+import { Typography } from '@mui/material'
+
 import Countdown from '../components/coutdown';
 
 export default function Home({
@@ -22,6 +24,9 @@ export default function Home({
       <Head>
         <title>Erica Wall</title>
       </Head>
+      <section className={utilStyles.sectionPopur}>
+        Happy New Year
+      </section>
       <section>
         <Countdown />
       </section>
@@ -35,7 +40,7 @@ export default function Home({
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.) */}
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px} ${utilStyles.sectionContainer}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
