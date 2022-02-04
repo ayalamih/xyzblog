@@ -6,8 +6,8 @@ import Link from 'next/link'
 
 import ResponsiveAppBar from './Header'
 
-const name = 'Erica Wall'
-export const siteTitle = 'Erica Wall Sample Website'
+const name = 'Jumier'
+export const siteTitle = 'Jumier Sample Website'
 
 export default function Layout({
   children,
@@ -19,6 +19,7 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <Head>
+        <title>{siteTitle}</title>  
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"

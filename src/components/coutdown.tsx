@@ -45,7 +45,7 @@ export default function Countdown() {
                 <CssBaseline />
                 <Box 
                     sx={{
-                        mt: 8,
+                        mt: 2,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center'
