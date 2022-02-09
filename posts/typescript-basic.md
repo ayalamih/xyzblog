@@ -4,6 +4,14 @@ date: "2022-01-25"
 author: "Jumier"
 ---
 
+[此书](https://github.com/xcatliu/typescript-tutorial), 上关注本书
+
+[官方手册](https://www.typescriptlang.org/docs/handbook/basic-types.html) ([中文版](https://zhongsp.gitbooks.io/typescript-handbook/content/)), 巩固知识
+
+[Project Configuration](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) ([中文版](https://zhongsp.gitbooks.io/typescript-handbook/content/doc/handbook/tsconfig.json.html)), 学习如何配置 TypeScript 工程
+
+[官方示例](https://www.typescriptlang.org/docs/),学习真实项目
+
 ### 原始数据类型
 
 JavaScript的类型分为两种：原始数据类型(Primitive data types)和对象类型(Object types).

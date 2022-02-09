@@ -198,7 +198,7 @@ VSCode 中的 ESLint 插件默认是不会检查 .ts 后缀的，需要在「文
 VSCode ESLint 错误信息
 
 我们还可以开启保存时自动修复的功能，通过配置：
-
+```
 {
     "eslint.autoFixOnSave": true,
     "eslint.validate": [
@@ -211,21 +211,28 @@ VSCode ESLint 错误信息
     ],
     "typescript.tsdk": "node_modules/typescript/lib"
 }
+```
 就可以在保存文件后，自动修复为：
-
+```
 let myName = 'Tom';
 
 interface Foo {}
-使用 Prettier 修复格式错误§
-ESLint 包含了一些代码格式的检查，比如空格、分号等。但前端社区中有一个更先进的工具可以用来格式化代码，那就是 Prettier。
+```
 
-Prettier 聚焦于代码的格式化，通过语法分析，重新整理代码的格式，让所有人的代码都保持同样的风格。
+
+### 使用 Prettier 修复格式错误
+
+ESLint 包含了一些代码格式的检查，比如空格、分号等。但前端社区中有一个更先进的工具可以用来格式化代码，那就是 [Prettier](https://prettier.io/)。
+
+[Prettier](https://prettier.io/) 聚焦于代码的格式化，通过语法分析，重新整理代码的格式，让所有人的代码都保持同样的风格。
 
 首先需要安装 Prettier：
-
+```
 npm install --save-dev prettier
-然后创建一个 prettier.config.js 文件，里面包含 Prettier 的配置项。Prettier 的配置项很少，这里我推荐大家一个配置规则，作为参考：
+```
 
+然后创建一个 prettier.config.js 文件，里面包含 Prettier 的配置项。Prettier 的配置项很少，这里我推荐大家一个配置规则，作为参考：
+```
 // prettier.config.js or .prettierrc.js
 module.exports = {
     // 一行最多 100 字符
@@ -264,11 +271,11 @@ module.exports = {
     // 换行符使用 lf
     endOfLine: 'lf'
 };
+```
 接下来安装 VSCode 中的 Prettier 插件，然后修改 .vscode/settings.json：
-
+```
 {
-    "files.eol": "
-",
+    "files.eol": "",
     "editor.tabSize": 4,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -283,20 +290,24 @@ module.exports = {
     ],
     "typescript.tsdk": "node_modules/typescript/lib"
 }
+```
 这样就实现了保存文件时自动格式化并且自动修复 ESLint 错误。
 
 需要注意的是，由于 ESLint 也可以检查一些代码格式的问题，所以在和 Prettier 配合使用时，我们一般会把 ESLint 中的代码格式相关的规则禁用掉，否则就会有冲突了。
 
-使用 AlloyTeam 的 ESLint 配置§
-ESLint 原生的规则和 @typescript-eslint/eslint-plugin 的规则太多了，而且原生的规则有一些在 TypeScript 中支持的不好，需要禁用掉。
+### 使用 AlloyTeam 的 ESLint 配置
 
-这里我推荐使用 AlloyTeam ESLint 规则中的 TypeScript 版本，它已经为我们提供了一套完善的配置规则，并且与 Prettier 是完全兼容的（eslint-config-alloy 不包含任何代码格式的规则，代码格式的问题交给更专业的 Prettier 去处理）。
+ESLint 原生的规则和 *@typescript-eslint/eslint-plugin* 的规则太多了，而且原生的规则有一些在 TypeScript 中支持的不好，需要禁用掉。
+
+这里我推荐使用 [AlloyTeam ESLint 规则中的 TypeScript 版本](https://github.com/AlloyTeam/eslint-config-alloy#typescript)，它已经为我们提供了一套完善的配置规则，并且与 Prettier 是完全兼容的（eslint-config-alloy 不包含任何代码格式的规则，代码格式的问题交给更专业的 Prettier 去处理）。
 
 安装：
-
+```
 npm install --save-dev eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-alloy
-在你的项目根目录下创建 .eslintrc.js，并将以下内容复制到文件中即可：
+```
 
+在你的项目根目录下创建 .eslintrc.js，并将以下内容复制到文件中即可：
+```
 module.exports = {
     extends: [
         'alloy',
@@ -323,20 +334,32 @@ module.exports = {
         // Customize your rules
     }
 };
-更多的使用方法，请参考 AlloyTeam ESLint 规则
+```
+更多的使用方法，请参考 [AlloyTeam ESLint 规则](https://github.com/AlloyTeam/eslint-config-alloy)
 
-使用 ESLint 检查 tsx 文件§
+### 使用 ESLint 检查 tsx 文件
+
 如果需要同时支持对 tsx 文件的检查，则需要对以上步骤做一些调整：
 
-安装 eslint-plugin-react§
+#### 安装 eslint-plugin-react
+
+```
 npm install --save-dev eslint-plugin-react
-package.json 中的 scripts.eslint 添加 .tsx 后缀§
+```
+
+#### package.json 中的 scripts.eslint 添加 .tsx 后缀
+
+```
 {
     "scripts": {
         "eslint": "eslint src --ext .ts,.tsx"
     }
 }
-VSCode 的配置中新增 typescriptreact 检查§
+```
+
+#### VSCode 的配置中新增 typescriptreact 检查
+
+```
 {
     "files.eol": "\n",
     "editor.tabSize": 4,
@@ -357,30 +380,40 @@ VSCode 的配置中新增 typescriptreact 检查§
     ],
     "typescript.tsdk": "node_modules/typescript/lib"
 }
-使用 AlloyTeam ESLint 规则中的 TypeScript React 版本§
-AlloyTeam ESLint 规则中的 TypeScript React 版本
+```
 
-Troubleshootings§
-Cannot find module '@typescript-eslint/parser'§
-你运行的是全局的 eslint，需要改为运行 ./node_modules/.bin/eslint。
+### 使用 AlloyTeam ESLint 规则中的 TypeScript React 版本
 
-VSCode 没有显示出 ESLint 的报错§
-检查「文件 => 首选项 => 设置」中有没有配置正确
-检查必要的 npm 包有没有安装
-检查 .eslintrc.js 有没有配置
-检查文件是不是在 .eslintignore 中
-如果以上步骤都不奏效，则可以在「文件 => 首选项 => 设置」中配置 "eslint.trace.server": "messages"，按 Ctrl+Shift+U 打开输出面板，然后选择 ESLint 输出，查看具体错误。
+[AlloyTeam ESLint 规则中的 TypeScript React 版本](https://github.com/AlloyTeam/eslint-config-alloy#typescript-react)
+
+### Troubleshootings
+
+#### Cannot find module '@typescript-eslint/parser'
+
+你运行的是全局的 eslint，需要改为运行 *./node_modules/.bin/eslint*。
+
+####  VSCode 没有显示出 ESLint 的报错
+1. 检查「文件 => 首选项 => 设置」中有没有配置正确
+2. 检查必要的 npm 包有没有安装
+3. 检查 .eslintrc.js 有没有配置
+4. 检查文件是不是在 .eslintignore 中
+
+如果以上步骤都不奏效，则可以在「文件 => 首选项 => 设置」中配置 *"eslint.trace.server": "messages"*，按 *Ctrl+Shift+U* 打开输出面板，然后选择 ESLint 输出，查看具体错误。
 
 VSCode 的 ESLint 输出
 
-为什么有些定义了的变量（比如使用 enum 定义的变量）未使用，ESLint 却没有报错？§
-因为无法支持这种变量定义的检查。建议在 tsconfig.json 中添加以下配置，使 tsc 编译过程能够检查出定义了未使用的变量：
+#### 为什么有些定义了的变量（比如使用 enum 定义的变量）未使用，ESLint 却没有报错？
 
+因为无法支持这种变量定义的检查。建议在 tsconfig.json 中添加以下配置，使 tsc 编译过程能够检查出定义了未使用的变量：
+```
 {
     "compilerOptions": {
         "noUnusedLocals": true,
         "noUnusedParameters": true
     }
 }
-启用了 noUnusedParameters 之后，只使用了第二个参数，但是又必须传入第一个参数，这就会报错了§
-第一个参数以下划线开头即可，参考 https://github.com/Microsoft/TypeScript/issues/9458
+```
+
+#### 启用了 noUnusedParameters 之后，只使用了第二个参数，但是又必须传入第一个参数，这就会报错了
+
+第一个参数以下划线开头即可，参考 [issues](https://github.com/Microsoft/TypeScript/issues/9458)
